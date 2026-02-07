@@ -14,7 +14,7 @@
             background-size: cover;
             background-position: center;
             color: white;
-            padding: 60px 20px 80px 20px;
+            padding: 60px 20px 100px 20px;
             text-align: center;
             border-radius: 0 0 60px 60px;
         }
@@ -30,15 +30,12 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             overflow: hidden;
         }
-        .logo-container img {
-            width: 80%;
-            height: auto;
-        }
+        .logo-container img { width: 80%; height: auto; }
         .info-card {
             border: none;
             border-radius: 30px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            margin-top: -60px;
+            margin-top: -80px;
             background: white;
         }
         .btn-submit {
@@ -47,26 +44,27 @@
             border: none;
             padding: 15px 30px;
             font-size: 1.1rem;
-            border-radius: 50px;
+            border-radius: 15px;
             font-weight: 700;
             transition: 0.4s;
             width: 100%;
         }
-        .btn-submit:hover {
-            background: #4e944f;
-            transform: scale(1.02);
+        .btn-submit:hover { background: #4e944f; transform: scale(1.02); color: white; }
+        .btn-wa {
+            background: #25d366;
             color: white;
-        }
-        .form-label {
+            border: none;
+            padding: 12px;
+            border-radius: 15px;
             font-weight: 600;
-            font-size: 0.9rem;
-            color: #444;
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+            transition: 0.3s;
         }
-        .form-control, .form-select {
-            border-radius: 12px;
-            padding: 10px 15px;
-            border: 1px solid #ddd;
-        }
+        .btn-wa:hover { background: #1eb954; color: white; transform: translateY(-2px); }
+        .form-label { font-weight: 600; font-size: 0.9rem; color: #444; }
+        .form-control, .form-select { border-radius: 12px; padding: 10px 15px; border: 1px solid #ddd; }
         .mkslb-badge {
             background: rgba(255,255,255,0.2);
             backdrop-filter: blur(5px);
@@ -76,6 +74,7 @@
             margin-bottom: 15px;
             font-size: 0.85rem;
         }
+        .wa-tag { font-size: 0.85rem; color: #555; margin-bottom: 10px; display: block; }
     </style>
 </head>
 <body>
@@ -95,81 +94,79 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card info-card p-4 p-md-5">
-                    <h3 class="fw-bold text-center mb-4 text-success">Borang Pendaftaran</h3>
                     
-                    <form id="pendaftaranForm">
-                        <div class="mb-3">
-                            <label class="form-label">Nama Penuh Peserta</label>
-                            <input type="text" id="nama" class="form-control" placeholder="Nama ikut MyKad" required>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">No. Kad Pengenalan</label>
-                                <input type="text" id="ic" class="form-control" placeholder="Contoh: 100101101234" required>
+                    <div id="registrationArea">
+                        <h3 class="fw-bold text-center mb-4 text-success">Borang Pendaftaran</h3>
+                        <form id="pendaftaranForm">
+                            <div class="mb-3">
+                                <label class="form-label">Nama Penuh Peserta</label>
+                                <input type="text" id="nama" class="form-control" placeholder="Nama ikut MyKad" required>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Jantina</label>
-                                <select class="form-select" id="jantina" required>
-                                    <option value="" selected disabled>Pilih Jantina</option>
-                                    <option value="Lelaki">Lelaki</option>
-                                    <option value="Perempuan">Perempuan</option>
-                                </select>
-                            </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">No. Telefon Waris</label>
-                                <input type="tel" id="tel" class="form-control" placeholder="0123456789" required>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">No. Kad Pengenalan</label>
+                                    <input type="text" id="ic" class="form-control" placeholder="Contoh: 100101101234" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Jantina</label>
+                                    <select class="form-select" id="jantina" required>
+                                        <option value="" selected disabled>Pilih Jantina</option>
+                                        <option value="Lelaki">Lelaki</option>
+                                        <option value="Perempuan">Perempuan</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Hubungan Waris</label>
-                                <select class="form-select" id="hubungan" required>
-                                    <option value="Ayah">Ayah</option>
-                                    <option value="Ibu">Ibu</option>
-                                    <option value="Penjaga">Penjaga</option>
-                                </select>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">No. Telefon Waris</label>
+                                    <input type="tel" id="tel" class="form-control" placeholder="0123456789" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Hubungan Waris</label>
+                                    <select class="form-select" id="hubungan" required>
+                                        <option value="Ayah">Ayah</option>
+                                        <option value="Ibu">Ibu</option>
+                                        <option value="Penjaga">Penjaga</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="mb-4">
-                            <label class="form-label">Alamat Lengkap Kediaman</label>
-                            <textarea id="alamat" class="form-control" rows="3" placeholder="Alamat rumah terkini" required></textarea>
-                        </div>
+                            <div class="mb-4">
+                                <label class="form-label">Alamat Lengkap Kediaman</label>
+                                <textarea id="alamat" class="form-control" rows="3" placeholder="Alamat rumah terkini" required></textarea>
+                            </div>
 
-                        <div class="text-center">
-                            <p class="small text-danger fw-bold mb-3">⚠️ PASTIKAN MAKLUMAT ADALAH BENAR</p>
-                            <button type="button" id="submitBtn" class="btn-submit shadow" onclick="hantarPendaftaran()">
-                                HANTAR PENDAFTARAN
-                            </button>
+                            <div class="text-center">
+                                <p class="small text-danger fw-bold mb-3">⚠️ PASTIKAN MAKLUMAT ADALAH BENAR</p>
+                                <button type="button" id="submitBtn" class="btn-submit shadow mb-4" onclick="hantarPendaftaran()">
+                                    HANTAR PENDAFTARAN
+                                </button>
+                            </div>
+                        </form>
+
+                        <div class="text-center pt-3 border-top">
+                            <span class="wa-tag">Dah selesai daftar? Jemput masuk ke Whatsapp group untuk makluman dan perkembangan program:</span>
+                            <a href="https://chat.whatsapp.com/Jm3OIrydgQu3WF8c9lnp90?mode=gi_t" target="_blank" class="btn-wa">
+                                🟢 JOIN WHATSAPP GROUP
+                            </a>
                         </div>
-                    </form>
-                    
+                    </div>
+
+                    <div id="successArea" class="d-none text-center py-4">
+                        <div class="mb-3"><span style="font-size: 50px;">✅</span></div>
+                        <h4 class="fw-bold text-success">Pendaftaran Berjaya!</h4>
+                        <p class="text-muted mb-4">Maklumat anda telah selamat disimpan dalam pangkalan data kami.</p>
+                        <div class="p-4 bg-light rounded-4">
+                            <span class="wa-tag fw-bold">LANGKAH TERAKHIR: Sila sertai group WhatsApp rasmi:</span>
+                            <a href="https://chat.whatsapp.com/Jm3OIrydgQu3WF8c9lnp90?mode=gi_t" target="_blank" class="btn-wa">
+                                🟢 JOIN WHATSAPP GROUP
+                            </a>
+                        </div>
+                    </div>
+
                     <div id="statusMsg" class="mt-3 text-center d-none"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container text-center mb-5">
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="p-4 border border-2 rounded-4 bg-white h-100">
-                    <h6 class="fw-bold">📅 TARIKH</h6>
-                    <p class="small text-muted m-0">Sepanjang Ramadhan 2026</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="p-4 border border-2 rounded-4 bg-white h-100">
-                    <h6 class="fw-bold">🕌 LOKASI</h6>
-                    <p class="small text-muted m-0">Masjid Kampung Sungai Lang Baru</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="p-4 border border-2 rounded-4 bg-white h-100">
-                    <h6 class="fw-bold">📲 SISTEM DIGITAL</h6>
-                    <p class="small text-muted m-0">Pantauan Hafazan & QR Code</p>
                 </div>
             </div>
         </div>
@@ -182,11 +179,14 @@
     </footer>
 
     <script>
+        // TETAPAN API
+        const GAS_URL = "https://script.google.com/macros/s/AKfycbxs8qjSSc5oc8qjpjFgNyWjaa4ZQO5eRk2gjgqlcW0g_1zpj2gOnlZREBarfQSkX-Qw/exec";
+        const TELEGRAM_TOKEN = "8498636977:AAFuKkGPJeA9eP2pRzBob1zarsqqfN-AK3s";
+        const TELEGRAM_CHAT_ID = "GANTIKAN_CHAT_ID_ANDA"; // Masukkan Chat ID anda di sini
+
         async function hantarPendaftaran() {
-            const webAppUrl = "https://script.google.com/macros/s/AKfycbxs8qjSSc5oc8qjpjFgNyWjaa4ZQO5eRk2gjgqlcW0g_1zpj2gOnlZREBarfQSkX-Qw/exec";
             const btn = document.getElementById('submitBtn');
             const msg = document.getElementById('statusMsg');
-
             const data = {
                 nama: document.getElementById('nama').value.toUpperCase(),
                 ic: document.getElementById('ic').value,
@@ -196,33 +196,37 @@
                 alamat: document.getElementById('alamat').value.toUpperCase()
             };
 
-            // Validasi ringkas
             if(!data.nama || !data.ic || !data.jantina || !data.tel || !data.alamat) {
-                alert("Sila lengkapkan semua ruangan yang disediakan.");
-                return;
+                alert("Sila lengkapkan semua maklumat."); return;
             }
 
             btn.disabled = true;
-            btn.innerText = "Sila Tunggu...";
+            btn.innerText = "Sedang Memproses...";
             msg.classList.remove('d-none');
-            msg.innerHTML = `<span class="text-primary">Sedang menghantar maklumat ke database ${data.jantina}...</span>`;
+            msg.innerHTML = `<span class="text-primary small">Menghantar ke database ${data.jantina}...</span>`;
 
             try {
-                await fetch(webAppUrl, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    body: JSON.stringify(data)
-                });
+                // 1. Simpan ke Google Sheet
+                await fetch(GAS_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(data) });
 
-                alert("Alhamdulillah! Pendaftaran berjaya dihantar.");
-                document.getElementById('pendaftaranForm').reset();
-                msg.innerHTML = `<span class="text-success fw-bold">✅ Pendaftaran Berjaya Disimpan!</span>`;
+                // 2. Notifikasi Telegram
+                const teksTele = `🔔 *PENDAFTARAN BARU DAURAH 2026*\n\n` +
+                                 `👤 Nama: ${data.nama}\n` +
+                                 `🆔 IC: ${data.ic}\n` +
+                                 `🚻 Jantina: ${data.jantina}\n` +
+                                 `📞 Tel: ${data.tel} (${data.hubungan})\n` +
+                                 `📍 Alamat: ${data.alamat}`;
+                
+                await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(teksTele)}&parse_mode=Markdown`);
+
+                // 3. Papar Success Area
+                document.getElementById('registrationArea').classList.add('d-none');
+                document.getElementById('successArea').classList.remove('d-none');
+                window.scrollTo(0,0);
+
             } catch (e) {
-                alert("Maaf, terdapat ralat. Sila cuba lagi.");
-                msg.innerHTML = `<span class="text-danger">❌ Ralat teknikal berlaku.</span>`;
-            } finally {
-                btn.disabled = false;
-                btn.innerText = "HANTAR PENDAFTARAN";
+                alert("Ralat berlaku. Sila cuba lagi.");
+                btn.disabled = false; btn.innerText = "HANTAR PENDAFTARAN";
             }
         }
     </script>
