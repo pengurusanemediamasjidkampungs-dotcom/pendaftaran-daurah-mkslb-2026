@@ -14,11 +14,10 @@
             background-size: cover;
             background-position: center;
             color: white;
-            padding: 80px 20px 100px 20px;
+            padding: 60px 20px 80px 20px;
             text-align: center;
             border-radius: 0 0 60px 60px;
         }
-        /* Style untuk logo.png yang anda upload */
         .logo-container {
             background: white;
             width: 100px;
@@ -39,34 +38,34 @@
             border: none;
             border-radius: 30px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            margin-top: -80px;
+            margin-top: -60px;
             background: white;
         }
-        .btn-register {
-            background: #ffcc00;
-            color: #1e5128;
+        .btn-submit {
+            background: #1e5128;
+            color: white;
             border: none;
-            padding: 20px 45px;
-            font-size: 1.4rem;
+            padding: 15px 30px;
+            font-size: 1.1rem;
             border-radius: 50px;
             font-weight: 700;
             transition: 0.4s;
-            text-transform: uppercase;
-            box-shadow: 0 8px 20px rgba(255, 204, 0, 0.3);
-            text-decoration: none;
-            display: inline-block;
+            width: 100%;
         }
-        .btn-register:hover {
-            background: #e6b800;
-            transform: scale(1.05);
-            color: #1e5128;
+        .btn-submit:hover {
+            background: #4e944f;
+            transform: scale(1.02);
+            color: white;
         }
-        .requirement-list {
-            background: #f0f7f1;
-            border-radius: 20px;
-            padding: 25px;
-            border-left: 8px solid #4e944f;
-            text-align: left;
+        .form-label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #444;
+        }
+        .form-control, .form-select {
+            border-radius: 12px;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
         }
         .mkslb-badge {
             background: rgba(255,255,255,0.2);
@@ -86,10 +85,9 @@
             <div class="logo-container">
                 <img src="logo.png" alt="Logo MKSLB" onerror="this.src='https://via.placeholder.com/80?text=MKSLB'">
             </div>
-            
             <div class="mkslb-badge fw-bold">Masjid Kampung Sungai Lang Baru</div>
-            <h1 class="fw-bold display-4">DAURAH REMAJA QURANIC</h1>
-            <p class="lead opacity-75">Ihya' Ramadhan 1447H / 2026M</p>
+            <h1 class="fw-bold display-5">DAURAH REMAJA QURANIC</h1>
+            <p class="lead opacity-75">Pendaftaran Ihya' Ramadhan 1447H / 2026M</p>
         </div>
     </div>
 
@@ -98,24 +96,57 @@
             <div class="col-md-8">
                 <div class="card info-card p-4 p-md-5">
                     <h3 class="fw-bold text-center mb-4 text-success">Borang Pendaftaran</h3>
-                    <p class="text-center text-muted mb-4">Sila pastikan maklumat berikut tersedia sebelum mendaftar:</p>
                     
-                    <div class="requirement-list mb-5">
-                        <div class="row g-3">
-                            <div class="col-md-6">✅ <strong>Nama Penuh Peserta</strong></div>
-                            <div class="col-md-6">✅ <strong>No. Kad Pengenalan</strong></div>
-                            <div class="col-md-6">✅ <strong>No. Telefon Waris</strong></div>
-                            <div class="col-md-6">✅ <strong>Alamat Lengkap</strong></div>
+                    <form id="pendaftaranForm">
+                        <div class="mb-3">
+                            <label class="form-label">Nama Penuh Peserta</label>
+                            <input type="text" id="nama" class="form-control" placeholder="Nama ikut MyKad" required>
                         </div>
-                    </div>
 
-                    <div class="text-center">
-                        <p class="small text-danger fw-bold mb-4">⚠️ TEMPAT ADALAH TERHAD</p>
-                        
-                        <a href="https://forms.gle/LINK_GOOGLE_FORM_ANDA" target="_blank" class="btn btn-register shadow">
-                            DAFTAR SEKARANG
-                        </a>
-                    </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">No. Kad Pengenalan</label>
+                                <input type="text" id="ic" class="form-control" placeholder="Contoh: 100101101234" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Jantina</label>
+                                <select class="form-select" id="jantina" required>
+                                    <option value="" selected disabled>Pilih Jantina</option>
+                                    <option value="Lelaki">Lelaki</option>
+                                    <option value="Perempuan">Perempuan</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">No. Telefon Waris</label>
+                                <input type="tel" id="tel" class="form-control" placeholder="0123456789" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Hubungan Waris</label>
+                                <select class="form-select" id="hubungan" required>
+                                    <option value="Ayah">Ayah</option>
+                                    <option value="Ibu">Ibu</option>
+                                    <option value="Penjaga">Penjaga</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">Alamat Lengkap Kediaman</label>
+                            <textarea id="alamat" class="form-control" rows="3" placeholder="Alamat rumah terkini" required></textarea>
+                        </div>
+
+                        <div class="text-center">
+                            <p class="small text-danger fw-bold mb-3">⚠️ PASTIKAN MAKLUMAT ADALAH BENAR</p>
+                            <button type="button" id="submitBtn" class="btn-submit shadow" onclick="hantarPendaftaran()">
+                                HANTAR PENDAFTARAN
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div id="statusMsg" class="mt-3 text-center d-none"></div>
                 </div>
             </div>
         </div>
@@ -125,20 +156,20 @@
         <div class="row g-4">
             <div class="col-md-4">
                 <div class="p-4 border border-2 rounded-4 bg-white h-100">
-                    <h5 class="fw-bold">📅 TARIKH</h5>
-                    <p class="small text-muted m-0">Sepanjang Ramadhan 2026<br>(Setiap Hujung Minggu)</p>
+                    <h6 class="fw-bold">📅 TARIKH</h6>
+                    <p class="small text-muted m-0">Sepanjang Ramadhan 2026</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="p-4 border border-2 rounded-4 bg-white h-100">
-                    <h5 class="fw-bold">🕌 LOKASI</h5>
-                    <p class="small text-muted m-0">Masjid Kampung Sungai Lang Baru (MKSLB)<br>Banting, Selangor</p>
+                    <h6 class="fw-bold">🕌 LOKASI</h6>
+                    <p class="small text-muted m-0">Masjid Kampung Sungai Lang Baru</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="p-4 border border-2 rounded-4 bg-white h-100">
-                    <h5 class="fw-bold">📜 KELEBIHAN</h5>
-                    <p class="small text-muted m-0">Sijil Penyertaan & Pantauan<br>Hafazan Digital Real-Time</p>
+                    <h6 class="fw-bold">📲 SISTEM DIGITAL</h6>
+                    <p class="small text-muted m-0">Pantauan Hafazan & QR Code</p>
                 </div>
             </div>
         </div>
@@ -147,8 +178,53 @@
     <footer class="text-center pb-5 text-muted small">
         <hr class="container mb-4">
         <p class="mb-1 fw-bold">© 2026 Jawatankuasa Daurah MKSLB</p>
-        <p>Sistem Hebahan & Pendaftaran Digital Ihya Ramadhan</p>
+        <p>Banting, Selangor Darul Ehsan</p>
     </footer>
 
+    <script>
+        async function hantarPendaftaran() {
+            const webAppUrl = "https://script.google.com/macros/s/AKfycbxs8qjSSc5oc8qjpjFgNyWjaa4ZQO5eRk2gjgqlcW0g_1zpj2gOnlZREBarfQSkX-Qw/exec";
+            const btn = document.getElementById('submitBtn');
+            const msg = document.getElementById('statusMsg');
+
+            const data = {
+                nama: document.getElementById('nama').value.toUpperCase(),
+                ic: document.getElementById('ic').value,
+                jantina: document.getElementById('jantina').value,
+                tel: document.getElementById('tel').value,
+                hubungan: document.getElementById('hubungan').value,
+                alamat: document.getElementById('alamat').value.toUpperCase()
+            };
+
+            // Validasi ringkas
+            if(!data.nama || !data.ic || !data.jantina || !data.tel || !data.alamat) {
+                alert("Sila lengkapkan semua ruangan yang disediakan.");
+                return;
+            }
+
+            btn.disabled = true;
+            btn.innerText = "Sila Tunggu...";
+            msg.classList.remove('d-none');
+            msg.innerHTML = `<span class="text-primary">Sedang menghantar maklumat ke database ${data.jantina}...</span>`;
+
+            try {
+                await fetch(webAppUrl, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: JSON.stringify(data)
+                });
+
+                alert("Alhamdulillah! Pendaftaran berjaya dihantar.");
+                document.getElementById('pendaftaranForm').reset();
+                msg.innerHTML = `<span class="text-success fw-bold">✅ Pendaftaran Berjaya Disimpan!</span>`;
+            } catch (e) {
+                alert("Maaf, terdapat ralat. Sila cuba lagi.");
+                msg.innerHTML = `<span class="text-danger">❌ Ralat teknikal berlaku.</span>`;
+            } finally {
+                btn.disabled = false;
+                btn.innerText = "HANTAR PENDAFTARAN";
+            }
+        }
+    </script>
 </body>
 </html>
